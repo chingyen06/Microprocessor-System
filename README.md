@@ -10,4 +10,4 @@
 
 題目 | 解答 |
 |:-------:|:--------:|
-| [test](/test/README.md) | [github page](/test) |
+| [addressing_01](/addressing_01/addressing_01.pdf) | [github page](/addressing_01) |
