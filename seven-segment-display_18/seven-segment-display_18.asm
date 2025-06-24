@@ -1,0 +1,75 @@
+WAIT EQU 40H
+MOV 30H, #0C0H  ;0
+MOV 31H, #0F9H  ;1
+MOV 32H, #0A4H  ;2
+MOV 33H, #0B0H  ;3
+MOV 34H, #99H  ;4
+MOV 35H, #92H  ;5
+MOV 36H, #82H  ;6
+MOV 37H, #0F8H  ;7
+MOV 38H, #80H  ;8
+MOV 39H, #90H  ;9
+
+FIND: MOV WAIT, #10H
+MOV P0, #0FFH
+MOV P1, #0FFH
+ACALL Row3
+ACALL Row2
+ACALL Row1
+ACALL Row0
+SJMP FIND
+
+Row3: CLR P0.3
+JNB P0.6, One
+JNB P0.5, Two
+JNB P0.1, Three
+SETB P0.3
+MOV WAIT, #10H
+RET
+
+Row2: CLR P0.2
+JNB P0.6, Four
+JNB P0.5, Five
+JNB P0.1, Six
+SETB P0.2
+MOV WAIT, #10H
+RET
+
+Row1: CLR P0.1
+JNB P0.6, Seven
+JNB P0.5, Eight
+JNB P0.4, Nine
+SETB P0.1
+MOV WAIT, #10H
+RET
+
+Row0: CLR P0.0
+JNB P0.5, Zero
+SETB P0.0
+MOV WAIT, #10H
+RET
+
+Zero: MOV P1, 30H
+ACALL delay
+One: MOV P1, 31H
+ACALL delay
+Two: MOV P1, 32H
+ACALL delay
+Three: MOV P1, 33H
+ACALL delay
+Four: MOV P1, 34H
+ACALL delay
+Five: MOV P1, 35H
+ACALL delay
+Six: MOV P1, 36H
+ACALL delay
+Seven: MOV P1, 37H
+ACALL delay
+Eight: MOV P1, 38H
+ACALL delay
+Nine: MOV P1, 39H
+ACALL delay
+
+delay: DJNZ WAIT, delay
+NOP
+LJMP FIND

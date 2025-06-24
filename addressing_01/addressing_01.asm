@@ -1,16 +1,17 @@
 ORG 40H
-OPR1: DB 1  ;ä¿ç•™OPR1
-OPR2: DB 1  ;ä¿ç•™OPR2
+OPR1: DB 1  ;«O¯dOPR1
+OPR2: DB 1  ;«O¯dOPR2
 
-ORG 0000H  ;ç¨‹å¼é–‹å§‹
-TEST0: MOV R0, #25H  ;ç«‹å³å®šå€
-MOV A, R0  ;æš«å­˜å™¨å®šå€
-MOV A, OPR1  ;ç›´æŽ¥å®šå€
-MOV A, @R0  ;é–“æŽ¥å®šå€
+ORG 0000H  ;µ{¦¡¶}©l
+TEST0: MOV R0, #25H  ;¥ß§Y©w§}
+MOV A, R0  ;¼È¦s¾¹©w§}
+MOV A, OPR1  ;ª½±µ©w§}
+MOV A, @R0  ;¶¡±µ©w§}
 TEST1: MOV @R0, #12H
-SJMP TEST0  ;ç›¸å°è·³èºæŒ‡ä»¤
-AJMP TEST1  ;çµ•å°è·³èºæŒ‡ä»¤
-LJMP TEST0  ;é•·ç¨‹è·³èºæŒ‡ä»¤
-MOVC A, @A+PC  ;ç´¢å¼•å®šå€
-MOVC A, @A+DPTR  ;ç´¢å¼•å®šå€
+SJMP TEST0  ;¬Û¹ï¸õÅD«ü¥O
+AJMP TEST1  ;µ´¹ï¸õÅD«ü¥O
+LJMP TEST0  ;ªøµ{¸õÅD«ü¥O
+MOVC A, @A+PC  ;¯Á¤Þ©w§}
+MOVC A, @A+DPTR  ;¯Á¤Þ©w§}
 END
+

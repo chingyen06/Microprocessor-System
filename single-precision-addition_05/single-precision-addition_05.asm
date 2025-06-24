@@ -1,0 +1,15 @@
+ORG 30H
+	ADDEND: DB 1  ;加數
+	AUGEND: DB 1  ;被加數
+	RESULT: DB 1  ;結果
+
+ORG 0000H
+	MOV ADDEND, #10H  ;設定 ADDEND 值
+	MOV AUGEND, #53H  ;設定 AUGEND 值
+
+	ADD8: MOV A, ADDEND  ;A 放 ADDEND 的值
+	ADD A, AUGEND  ;A <- A + AUGEND 的值
+	MOV RESULT, A  ;RESULT 放 A 的值
+	
+	RET
+END
